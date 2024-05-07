@@ -5,7 +5,7 @@
   float a, b, c;
 
 
-    printf("\nRemember to only type numbers.\n\n Press Enter to Start\n");
+    printf("\nRemember to only type numbers.\n\n Press Any Key to Start\n");
       scanf("%*c");
     
     printf("Enter Length of Side A: ");
