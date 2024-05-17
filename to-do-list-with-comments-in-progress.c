@@ -1,4 +1,4 @@
-//COMMENTS WRITTEN FOR OWN UNDERSTANDING
+//Comments written for own understanding
 #include <stdio.h> // Calls stdio library
 #include <string.h> // Calls string library
 
