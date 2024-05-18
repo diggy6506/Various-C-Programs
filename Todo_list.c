@@ -6,10 +6,8 @@
 
 int main(void) {
     char task_list[MAX_TASKS][MAX_LENGTH] = {0};
-    int menu_selection, delete_task, complete_task;
+    int menu_selection, delete_task, complete_task, loop = 1, counter = 0;
     char add_task[50];
-    int loop = 1;
-    int counter = 0;
 
     printf("\nPress Enter to View and Edit Tasks ");
     getchar();
@@ -20,6 +18,7 @@ int main(void) {
             task_list[counter][strcspn(task_list[counter], "\n")] = '\0';
             counter++;
         }
+        
         fclose(file_task_list);
     }
 
@@ -38,13 +37,16 @@ int main(void) {
         while (getchar() != '\n');
 
         switch (menu_selection) {
+            
             case 1:
                 if (counter < MAX_TASKS) {
                     printf("Enter New Task: ");
                     fgets(task_list[counter], sizeof(task_list[0]), stdin);
                     task_list[counter][strcspn(task_list[counter], "\n")] = '\0';
                     counter++;
-                } else {
+                } 
+                
+                else {
                     printf("Task List is Full!\n");
                 }
                 break;
@@ -52,6 +54,7 @@ int main(void) {
             case 2:
                 printf("Enter the Task Number to Delete: ");
                 scanf("%d", &delete_task);
+                
                 while (getchar() != '\n');
 
                 if (delete_task > 0 && delete_task <= counter) {
@@ -59,8 +62,11 @@ int main(void) {
                         strcpy(task_list[i], task_list[i + 1]);
                     }
                     counter--;
+                    
                     printf("Task %d Deleted\n", delete_task);
-                } else {
+                } 
+                
+                else {
                     printf("Invalid Task Number\n");
                 }
                 break;
@@ -68,12 +74,15 @@ int main(void) {
             case 3:
                 printf("Enter the Task Number To Mark as Complete: ");
                 scanf("%d", &complete_task);
+                
                 while (getchar() != '\n');
 
                 if (complete_task > 0 && complete_task <= counter) {
                     strcat(task_list[complete_task - 1], " [Completed]");
                     printf("Task %d Marked as Complete\n", complete_task);
-                } else {
+                } 
+                
+                else {
                     printf("Invalid Task Number\n");
                 }
                 break;
